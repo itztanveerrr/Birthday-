@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Vontie Jinti 🎂</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+padding:0;
+background:linear-gradient(135deg,#ffd6ff,#c8b6ff);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Arial,sans-serif;
+text-align:center;
+overflow:hidden;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+max-width:350px;
+position:relative;
+z-index:2;
+}
+
+h1{
+color:#6a0dad;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:#6a0dad;
+color:white;
+cursor:pointer;
+margin-top:15px;
+font-size:15px;
+}
+
+button:hover{
+opacity:0.8;
+}
+
+#photo{
+display:none;
+margin-top:15px;
+max-width:100%;
+border-radius:15px;
+animation:fadeIn 1.5s ease-in-out;
+}
+
+#message{
+display:none;
+margin-top:15px;
+font-size:16px;
+color:#6a0dad;
+font-weight:bold;
+animation:fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:scale(0.9);}
+to{opacity:1; transform:scale(1);}
+}
+
+.confetti{
+position:absolute;
+width:8px;
+height:8px;
+animation:fall 3s linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-100vh);}
+100%{transform:translateY(100vh);}
+}
+
+.flower{
+position:absolute;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>Happy Birthday Vontie Jinti 🎂</h1>
+<p>Tap below for surprises 💖</p>
+
+<button onclick="nextSurprise()">Open Surprise 🎁</button>
+
+<img id="photo" src="IMG_20260228_191924.jpg">
+
+<div id="message">
+Dear Vontie Jinti 🌸<br>
+You are a blessing to our family.<br>
+May your life be filled with happiness, health & success ✨
+</div>
+
+<!-- Background Music -->
+<video id="music" loop style="display:none;">
+<source src="video_20260228_233426_edit.mp4" type="video/mp4">
+</video>
+
+</div>
+
+<script>
+
+let step = 0;
+
+function nextSurprise(){
+
+step++;
+
+if(step === 1){
+document.getElementById("photo").style.display = "block";
+document.getElementById("music").play();
+}
+
+else if(step === 2){
+document.getElementById("message").style.display = "block";
+}
+
+else if(step === 3){
+createConfetti();
+createFlowers();
+}
+
+}
+
+function createConfetti(){
+for(let i=0;i<80;i++){
+let c=document.createElement("div");
+c.classList.add("confetti");
+c.style.left=Math.random()*100+"vw";
+c.style.backgroundColor="hsl("+Math.random()*360+",100%,50%)";
+c.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(c);
+}
+}
+
+function createFlowers(){
+for(let i=0;i<25;i++){
+let f=document.createElement("div");
+f.classList.add("flower");
+f.innerHTML="🌸";
+f.style.left=Math.random()*100+"vw";
+f.style.animationDuration=(Math.random()*5+5)+"s";
+document.body.appendChild(f);
+}
+}
+
+</script>
+
+</body>
+  </html>
